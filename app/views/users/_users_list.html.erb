@@ -1,8 +1,12 @@
-<div id="users_list_box" class="fade-in-up-scale">
+<div id="users_list_box" class="users_list_box fade-in-up-scale">
+  <% if @users.present? %>
     <div class="flex-col-start">
-        <h2 class="mb-lg">Users list</h2>
+      <h2 class="mb-lg">Users list</h2>
+      <% if @users.present? %>
         <% @users.each do |user| %>
-            <%= render 'user', user: user %>
+          <%= render 'user', user: user %>
         <% end %>
+      <% end %>
     </div>
+  <% end %>
 </div>

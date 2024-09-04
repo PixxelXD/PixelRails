@@ -1,5 +1,7 @@
 <div class="bg">
-    <%= render 'form'%>
+    <%= render 'form' %>
 
-    <%= render 'users_list' %>
+    <div id="users_list_box">
+        <%= render 'users_list' if @users.present? %>
+    </div>
 </div>

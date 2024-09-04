@@ -6,21 +6,24 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @users = User.all
+  
     if @user.save
       respond_to do |format|
         format.turbo_stream do
           render turbo_stream: [
             turbo_stream.replace('user_form', partial: 'users/form', locals: { user: User.new }),
-            turbo_stream.append('users_list_box', partial: 'users/user', locals: { user: @user })
+            # turbo_stream.append('users_list_box', partial: 'users/user', locals: { user: @user })
+            turbo_stream.replace('users_list_box', partial: 'users/users_list')
           ]
         end
         format.html { redirect_to users_path, notice: 'User was successfully created.' }
       end
     else
-      @users = User.all
       render :index
     end
-  end  
+  end
+  
 
   def edit
     @users = User.all
