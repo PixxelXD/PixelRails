@@ -17,7 +17,6 @@ class UsersController < ApplicationController
             turbo_stream.replace('users_list_box', partial: 'users/users_list')
           ]
         end
-        format.html { redirect_to users_path, notice: 'User was successfully created.' }
       end
     else
       render :index

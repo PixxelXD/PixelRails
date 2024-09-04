@@ -361,10 +361,6 @@ table th {
   border-bottom: 1px solid #ddd;
 }
 
-.fade-in-scale {
-  animation: fadeInScale 0.3s ease-in-out;
-}
-
 .user-card {
   width: 100%;
   border-radius: 15px;
@@ -400,13 +396,17 @@ table th {
 }
 
 .fade-in-up-scale {
-  animation: fadeInUpScale 0.3s ease-in-out;
+  animation: fadeInUpScale 0.5s ease-in-out;
+}
+
+.fade-in-scale {
+  animation: fadeInScale 0.3s ease-in-out;
 }
 
 @keyframes fadeInUpScale {
   from {
     opacity: 0;
-    transform: translateY(10px) scale(0.9);
+    transform: translateY(-100px) scale(0.9);
   }
   to {
     opacity: 1;
