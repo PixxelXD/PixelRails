@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         format.turbo_stream do
           render turbo_stream: [
             turbo_stream.replace('user_form', partial: 'users/form', locals: { user: User.new }),
-            turbo_stream.append('users_list_tbody', partial: 'users/user', locals: { user: @user })
+            turbo_stream.append('users_list_box', partial: 'users/user', locals: { user: @user })
           ]
         end
         format.html { redirect_to users_path, notice: 'User was successfully created.' }

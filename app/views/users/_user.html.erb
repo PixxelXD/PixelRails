@@ -1,9 +1,23 @@
-<tr id="<%= dom_id(user) %>" class="fade-in-scale">
-  <td><%= user.first_name %></td>
-  <td><%= user.last_name %></td>
-  <td><%= user.birth_date %></td>
-  <td><%= user.gender.titleize %></td>
-  <td><%= user.email %></td>
-  <td><%= user.phone_number %></td>
-  <td><%= user.subject %></td>
-</tr>
+<div id="<%= dom_id(user) %>" class="user-card fade-in-scale">
+  <div class="flex-row-start">
+    <div class="flex-row-between">
+      <div class="flex-row-start gap-md">
+        <%= image_tag ("/assets/avatar.png") , class: "img-avatar"%>
+        <div class="flex-col-start gap-sm">
+          <h3><%= user.first_name %> <%= user.last_name %></h3>
+          <p><%= user.email %></p>
+        </div>
+      </div>
+      <div class="flex-row-start gap-md">
+        <%= link_to 'Edit', users_path, class: 'btn-secondary' %>
+        <%= link_to 'Delete', users_path, method: :delete, class: 'btn-danger' %>
+      </div>
+    </div>
+  </div>
+    <div class="flex-grid-4 mt-md t-border">
+        <div class="flex-row-start gap-sm"><h4>Birth date: </h4> <%= user.birth_date %></div>
+        <div class="flex-row-start gap-sm"><h4>Phone Number: </h4> <%= user.phone_number %></div>
+        <div class="flex-row-start gap-sm"><h4>Gender: </h4> <%= user.gender.titleize %></div>
+        <div class="flex-row-start gap-sm"><h4>Subject: </h4> <%= user.subject %></div>
+    </div>
+</div>

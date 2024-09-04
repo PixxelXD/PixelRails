@@ -38,7 +38,7 @@
     </div>
     <div class="field">
       <%= f.label :subject %>
-      <%= f.select :subject, ['Choose option', 'Math', 'English', 'Science'], {}, required: true %>
+      <%= f.select :subject, ['Math', 'English', 'Science'], { prompt: 'Select a subject' }, required: true %>
     </div>
     <%= f.submit 'Submit', class: 'btn-primary mt-xl' %>
   </div>
