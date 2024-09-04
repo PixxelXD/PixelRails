@@ -287,3 +287,18 @@ table th {
   border-bottom: 1px solid #ddd;
 }
 
+.fade-in-scale {
+  animation: fadeInScale 0.3s ease-in-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
