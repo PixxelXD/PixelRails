@@ -41,12 +41,15 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @users = User.all
     if @user.update(user_params)
       respond_to do |format|
         format.turbo_stream do
-          redirect_to users_path, notice: 'User was successfully updated.'
+          render turbo_stream: [
+            turbo_stream.replace('user_form', partial: 'users/form', locals: { user: User.new }),
+            turbo_stream.replace('users_list_box', partial: 'users/users_list')
+          ]
         end
-        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
       end
     else
       render :index

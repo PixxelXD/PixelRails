@@ -1,47 +1,49 @@
-<%= form_with model: @user, url: @user.persisted? ? user_path(@user) : users_path, method: @user.persisted? ? :patch : :post, data: { turbo_frame: 'user_form' }, class: 'container' do |f| %>
-  <div class="flex-col-start">
+<turbo-frame id="user_form">
+  <%= form_with model: user, url: user.persisted? ? user_path(user) : users_path, method: user.persisted? ? :patch : :post, local: true, class: 'container' do |f| %>
+    <div class="flex-col-start">
 
-    <h1><%= @user.persisted? ? 'Edit User' : 'Register Form' %></h1>
+      <h1><%= user.persisted? ? 'Edit User' : 'Register Form' %></h1>
 
-    <div class="flex-row-center gap-xl">
-      <div class="field">
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, required: true %>
-      </div>
-      <div class="field">
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name, required: true %>
-      </div>
-    </div>
-    <div class="flex-row-center gap-xl">
-      <div class="field">
-        <%= f.label :birth_date %>
-        <%= f.date_field :birth_date, required: true %>
-      </div>
-      <div class="field">
-        <%= f.label :gender %>
-        <div class="radio-group">
-          <%= f.radio_button :gender, 'male', id: 'gender_male', required: true %>
-          <%= f.label :gender_male, 'Male' %>
-          <%= f.radio_button :gender, 'female', id: 'gender_female' %>
-          <%= f.label :gender_female, 'Female' %>
+      <div class="flex-row-center gap-xl">
+        <div class="field">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, required: true %>
+        </div>
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, required: true %>
         </div>
       </div>
-    </div>
-    <div class="flex-row-center gap-xl">
-      <div class="field">
-        <%= f.label :email %>
-        <%= f.email_field :email, required: true %>
+      <div class="flex-row-center gap-xl">
+        <div class="field">
+          <%= f.label :birth_date %>
+          <%= f.date_field :birth_date, required: true %>
+        </div>
+        <div class="field">
+          <%= f.label :gender %>
+          <div class="radio-group">
+            <%= f.radio_button :gender, 'male', id: 'gender_male', required: true %>
+            <%= f.label :gender_male, 'Male' %>
+            <%= f.radio_button :gender, 'female', id: 'gender_female' %>
+            <%= f.label :gender_female, 'Female' %>
+          </div>
+        </div>
+      </div>
+      <div class="flex-row-center gap-xl">
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email, required: true %>
+        </div>
+        <div class="field">
+          <%= f.label :phone_number %>
+          <%= f.telephone_field :phone_number, required: true %>
+        </div>
       </div>
       <div class="field">
-        <%= f.label :phone_number %>
-        <%= f.telephone_field :phone_number, required: true %>
+        <%= f.label :subject %>
+        <%= f.select :subject, ['Math', 'English', 'Science'], { prompt: 'Select a subject' }, required: true %>
       </div>
+      <%= f.submit user.persisted? ? 'Update' : 'Submit', class: 'btn-primary mt-xl' %>
     </div>
-    <div class="field">
-      <%= f.label :subject %>
-      <%= f.select :subject, ['Math', 'English', 'Science'], { prompt: 'Select a subject' }, required: true %>
-    </div>
-    <%= f.submit @user.persisted? ? 'Update' : 'Submit', class: 'btn-primary mt-xl' %>
-  </div>
-<% end %>
+  <% end %>
+</turbo-frame>

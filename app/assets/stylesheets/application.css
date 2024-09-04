@@ -148,6 +148,13 @@ textarea:not([rows]) {
   margin-bottom: 50px;
 }
 
+#user_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container {
   width: 90%;
   max-width: 600px;
