@@ -378,12 +378,16 @@ table th {
 
 #users_list_box {
   width: 100%;
-  max-width: 600px;
+}
+
+#users_list_box #users_list_box {
+  width: 90%;
 }
 
 .users_list_box {
+  margin: auto;
+  width: 90%;
   margin-top: 25px;
-  width: 100%;
   max-width: 600px;
   background-color: var(--text-white-muted);
   display: flex;
