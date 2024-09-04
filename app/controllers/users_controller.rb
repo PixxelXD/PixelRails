@@ -26,6 +26,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    @users = User.all
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@user) }
+    end
   end
 
   def user_params
