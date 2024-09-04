@@ -10,19 +10,9 @@
       <th>Subject</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="users_list_tbody">
     <% @users.each do |user| %>
-      <%= turbo_frame_tag dom_id(user) do %>
-        <tr>
-          <td><%= user.first_name %></td>
-          <td><%= user.last_name %></td>
-          <td><%= user.birth_date %></td>
-          <td><%= user.gender.titleize %></td>
-          <td><%= user.email %></td>
-          <td><%= user.phone_number %></td>
-          <td><%= user.subject %></td>
-        </tr>
-      <% end %>
+      <%= render 'user', user: user %>
     <% end %>
   </tbody>
 </table>

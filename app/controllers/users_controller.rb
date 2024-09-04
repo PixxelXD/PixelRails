@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def index
-    # For get all users
     @users = User.all
     @user = User.new
   end
@@ -8,11 +7,20 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path, notice: 'User was successfully created.'
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.replace('user_form', partial: 'users/form', locals: { user: User.new }),
+            turbo_stream.append('users_list_tbody', partial: 'users/user', locals: { user: @user })
+          ]
+        end
+        format.html { redirect_to users_path, notice: 'User was successfully created.' }
+      end
     else
+      @users = User.all
       render :index
     end
-  end
+  end  
 
   def update
   end
