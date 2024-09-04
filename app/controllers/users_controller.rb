@@ -59,11 +59,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     @users = User.all
+  
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.remove(@user) }
+      format.turbo_stream do
+        if @users.any?
+          render turbo_stream: turbo_stream.remove(@user)
+        else
+          render turbo_stream: turbo_stream.remove('users_list_box')
+        end
+      end
       format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
     end
   end
+  
+
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :birth_date, :gender, :email, :phone_number, :subject)
