@@ -27,6 +27,7 @@
   --color-secondary: #ff9472;
   --color-primary-hover: #ef5c8d;
   --text-title: #444;
+  --text-title-muted: #737373;
   --text-body: #777;
   --text-muted: #999;
   --text-white: #fff;
@@ -205,6 +206,10 @@ textarea:not([rows]) {
 
 .gap-sm {
   gap: 3px;
+}
+
+.text-title-low {
+  color: var(--text-title-muted);
 }
 
 .flex-row-between {
