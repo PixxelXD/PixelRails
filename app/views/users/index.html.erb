@@ -4,7 +4,7 @@
         <%= userForm.submit 'Submit', class: 'btn-primary mt-xl'%>
     <% end %>
 
-    <% @users.each do |user| %>
-        <p><%= user.inspect%></p>
+    <%= turbo_frame_tag 'users_list' do %>
+        <%= render 'users_list' %>
     <% end %>
 </div>
