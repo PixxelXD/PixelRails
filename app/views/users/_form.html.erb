@@ -1,6 +1,8 @@
-<%= form_with model: @user, url: users_path, method: :post, data: { turbo_frame: 'user_form' }, class: 'container' do |f| %>
+<%= form_with model: @user, url: @user.persisted? ? user_path(@user) : users_path, method: @user.persisted? ? :patch : :post, data: { turbo_frame: 'user_form' }, class: 'container' do |f| %>
   <div class="flex-col-start">
-    <h1>Register Form</h1>
+
+    <h1><%= @user.persisted? ? 'Edit User' : 'Register Form' %></h1>
+
     <div class="flex-row-center gap-xl">
       <div class="field">
         <%= f.label :first_name %>
@@ -40,6 +42,6 @@
       <%= f.label :subject %>
       <%= f.select :subject, ['Math', 'English', 'Science'], { prompt: 'Select a subject' }, required: true %>
     </div>
-    <%= f.submit 'Submit', class: 'btn-primary mt-xl' %>
+    <%= f.submit @user.persisted? ? 'Update' : 'Submit', class: 'btn-primary mt-xl' %>
   </div>
 <% end %>

@@ -143,7 +143,8 @@ textarea:not([rows]) {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100dvh;
+  margin-top: 18dvh;
+  margin-bottom: 50px;
 }
 
 .container {
@@ -296,6 +297,7 @@ select {
 .btn-secondary {
   width: 100%;
   padding: 8px;
+  height: 35px;
   font-size: 1rem;
   border: none;
   background-color: var(--color-secondary);
@@ -313,6 +315,7 @@ select {
 .btn-danger {
   width: 100%;
   padding: 8px;
+  height: 35px;
   font-size: 1rem;
   border: none;
   background-color: #ff4f4f;
@@ -373,6 +376,7 @@ table th {
 }
 
 #users_list_box {
+  margin-top: 25px;
   width: 90%;
   max-width: 600px;
   background-color: var(--text-white-muted);
@@ -388,6 +392,21 @@ table th {
 .t-border {
   border-top: 1px solid #eeeeee;
   padding: 15px 10px 5px 10px;
+}
+
+.fade-in-up-scale {
+  animation: fadeInUpScale 0.3s ease-in-out;
+}
+
+@keyframes fadeInUpScale {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes fadeInScale {

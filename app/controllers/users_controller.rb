@@ -22,15 +22,43 @@ class UsersController < ApplicationController
     end
   end  
 
-  def update
+  def edit
+    @users = User.all
+    @user = User.find(params[:id])
+    if @user == nil
+      redirect_to users_path
+    end
+    
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace('user_form', partial: 'users/form', locals: { user: @user })
+      end
+      format.html { render :edit }
+    end
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      respond_to do |format|
+        format.turbo_stream do
+          redirect_to users_path, notice: 'User was successfully updated.'
+        end
+        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
+      end
+    else
+      render :index
+    end
+  end
+  
+  
   def destroy
     @user = User.find(params[:id])
     @user.destroy
     @users = User.all
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.remove(@user) }
+      format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
     end
   end
 
