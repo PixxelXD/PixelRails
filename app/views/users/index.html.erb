@@ -3,4 +3,8 @@
         <%= render 'form', form: userForm %>
         <%= userForm.submit 'Submit', class: 'btn-primary mt-xl'%>
     <% end %>
+
+    <% @users.each do |user| %>
+        <p><%= user.inspect%></p>
+    <% end %>
 </div>
