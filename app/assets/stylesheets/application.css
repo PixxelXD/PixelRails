@@ -375,9 +375,14 @@ table th {
   background-color: var(--text-white);
 }
 
+#users_list_box {
+  width: 100%;
+  max-width: 600px;
+}
+
 .users_list_box {
   margin-top: 25px;
-  width: 90%;
+  width: 100%;
   max-width: 600px;
   background-color: var(--text-white-muted);
   display: flex;
