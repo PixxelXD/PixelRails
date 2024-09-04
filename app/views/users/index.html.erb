@@ -1,7 +1,6 @@
 <div class="bg">
-    <div class="container">
-        <div class="flex-col-start">
-            <h1>Register Form</h1>    
-        </div>
-    <div>
+    <%= form_with model: @user, url: users_path, method: :post, data: { turbo_frame: 'user_form' }, class: 'container' do |userForm| %>
+        <%= render 'form', form: userForm %>
+        <%= userForm.submit 'Save'%>
+    <% end %>
 </div>
