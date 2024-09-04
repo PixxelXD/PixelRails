@@ -412,6 +412,18 @@ table th {
   animation: fadeInScale 0.3s ease-in-out;
 }
 
+.line-clamp-1 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+}
+
+.bg-white {
+  background-color: var(--text-white);
+  padding-left: 10px;
+}
+
 @keyframes fadeInUpScale {
   from {
     opacity: 0;
@@ -446,6 +458,10 @@ table th {
 
   .gap-xl {
     gap: 0px;
+  }
+
+  .flex-grid-4 {
+    grid-template-columns: repeat(1, 1fr);
   }
   
 }

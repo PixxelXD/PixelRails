@@ -4,16 +4,15 @@
       <div class="flex-row-start gap-md">
         <%= image_tag ("/assets/avatar.png") , class: "img-avatar"%>
         <div class="flex-col-start gap-sm">
-          <h3><%= user.first_name %> <%= user.last_name %></h3>
-          <p><%= user.email %></p>
+          <h3 class="line-clamp-1"><%= user.first_name %> <%= user.last_name %></h3>
+          <p class="line-clamp-1"><%= user.email %></p>
         </div>
       </div>
-      <div class="flex-row-start gap-md">
+      <div class="flex-row-start gap-md bg-white">
         <%= link_to 'Edit', edit_user_path(user), data: { turbo_frame: "user_form" }, class: 'btn-secondary' %>
         <%= form_with model: user, url: user_path(user), method: :delete, data: { turbo_confirm: 'Are you sure?' } do %>
           <%= submit_tag 'Delete', class: 'btn-danger' %>
         <% end %>
-
       </div>
     </div>
   </div>
