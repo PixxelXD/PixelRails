@@ -25,8 +25,9 @@
 * {
   --color-primary: #f2709c;
   --color-secondary: #ff9472;
-  --text-title: #333;
-  --text-body: #555;
+  --color-primary-hover: #ef5c8d;
+  --text-title: #444;
+  --text-body: #777;
   --text-muted: #999;
 }
 
@@ -70,13 +71,15 @@ h1, h2, h3, h4,
 button, input, label {
   line-height: 1;
   font-family: "kanit", sans-serif;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 /* Balance text wrapping on headings */
 h1, h2,
 h3, h4 {
   text-wrap: balance;
+  font-weight: 400;
+  color: var(--text-title);
 }
 
 h1 {
@@ -113,6 +116,7 @@ input, button,
 textarea, select {
   font-family: inherit;
   font-size: inherit;
+  font-weight: 300;
 }
 
 /* Make sure textareas without a rows attribute are not tiny */
@@ -171,10 +175,15 @@ textarea:not([rows]) {
 }
 
 .flex-row-center {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.gap-xl {
+  gap: 20px;
 }
 
 .flex-row-between {
@@ -182,5 +191,53 @@ textarea:not([rows]) {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+.field {
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  color: var(--text-body);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+input::placeholder {
+  color: var(--text-muted);
+}
+
+.mt-xl {
+  margin-top: 20px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
 }
 
