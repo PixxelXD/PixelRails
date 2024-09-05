@@ -249,7 +249,7 @@ input {
   height: 40px;
   border: 1px solid #ddd;
   background-color: #f9f9f9;
-  color: var(--text-body);
+  color: var(--text-title);
   border-radius: 8px;
   font-size: 1rem;
 }
