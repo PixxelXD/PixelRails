@@ -1,5 +1,5 @@
 <turbo-frame id="user_form">
-  <%= form_with model: user, url: user.persisted? ? user_path(user) : users_path, method: user.persisted? ? :patch : :post, local: true, class: 'container fade-in' do |f| %>
+  <%= form_with model: user, url: user.persisted? ? user_path(user) : users_path, method: user.persisted? ? :patch : :post, local: true, class: 'container' do |f| %>
     <div class="flex-col-start">
 
       <h1><%= user.persisted? ? 'Edit User' : 'Register Form' %></h1>
