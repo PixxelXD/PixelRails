@@ -1,12 +1,14 @@
 <div id="users_list_box" class="users_list_box fade-in-up-scale">
   <% if @users.present? %>
     <div class="flex-col-start">
-      <h2 class="mb-lg">Users list</h2>
-      <% if @users.present? %>
-        <% @users.order(updated_at: :desc).each do |user| %>
-          <%= render 'user', user: user %>
-        <% end %>
-      <% end %>
+      <h2 class="mb-md">Users list</h2>
+        <div id="users_lists" class="flex-col-start">
+          <% if @users.present? %>
+            <% @users.order(updated_at: :desc).each do |user| %>
+              <%= render 'user', user: user %>
+            <% end %>
+          <% end %>
+        </div>
     </div>
   <% end %>
 </div>

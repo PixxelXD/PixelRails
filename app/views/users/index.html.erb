@@ -1,7 +1,7 @@
 <div class="bg">
     <%= render partial: 'form', locals: { user: @user } %>
 
-    <div id="users_list_box">
+    <div id="users_list_div">
         <%= render 'users_list' if @users.present? %>
     </div>
 </div>

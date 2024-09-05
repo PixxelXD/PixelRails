@@ -13,7 +13,11 @@ class UsersController < ApplicationController
         format.turbo_stream do
           render turbo_stream: [
             turbo_stream.replace('user_form', partial: 'users/form', locals: { user: User.new }),
-            turbo_stream.replace('users_list_box', partial: 'users/users_list')
+            if @users.length == 1
+              turbo_stream.replace('users_list_div', partial: 'users/users_list', locals: { users: @users })
+            else 
+              turbo_stream.prepend('users_lists', partial: 'users/user', locals: { user: @user })
+            end
           ]
         end
       end
@@ -46,7 +50,7 @@ class UsersController < ApplicationController
         format.turbo_stream do
           render turbo_stream: [
             turbo_stream.replace('user_form', partial: 'users/form', locals: { user: User.new }),
-            turbo_stream.replace('users_list_box', partial: 'users/users_list')
+            turbo_stream.replace('user_' + @user.id.to_s, partial: 'users/user', locals: { user: @user })
           ]
         end
       end
