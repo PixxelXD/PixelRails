@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="flex-row-start gap-md bg-white">
-        <%= button_to 'Edit', edit_user_path(user), method: :get, data: { turbo_frame: "user_form" }, class: 'btn-secondary' %>
+        <%= button_to 'Edit', edit_user_path(user), method: :get, data: { turbo_frame: "user_form" }, class: 'btn-secondary edit-button' %>
         <%= button_to 'Delete', user_path(user), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn-danger' %>
       </div>
     </div>
