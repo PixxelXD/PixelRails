@@ -3,7 +3,7 @@
     <div class="flex-col-start">
       <h2 class="mb-lg">Users list</h2>
       <% if @users.present? %>
-        <% @users.each do |user| %>
+        <% @users.order(updated_at: :desc).each do |user| %>
           <%= render 'user', user: user %>
         <% end %>
       <% end %>
