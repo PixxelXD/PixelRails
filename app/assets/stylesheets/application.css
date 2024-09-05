@@ -418,6 +418,10 @@ table th {
   animation: fadeInScale 0.7s ease-in-out;
 }
 
+.fade-in {
+  animation: fadeInScale 0.5s ease-in-out;
+}
+
 .line-clamp-1 {
   text-overflow: ellipsis;
   overflow: hidden;
