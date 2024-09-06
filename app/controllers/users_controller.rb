@@ -50,7 +50,8 @@ class UsersController < ApplicationController
         format.turbo_stream do
           render turbo_stream: [
             turbo_stream.replace('user_form', partial: 'users/form', locals: { user: User.new }),
-            turbo_stream.replace('user_' + @user.id.to_s, partial: 'users/user', locals: { user: @user })
+            # turbo_stream.replace('user_' + @user.id.to_s, partial: 'users/user', locals: { user: @user })
+            turbo_stream.replace('users_list_box', partial: 'users/users_list', locals: { users: @users })
           ]
         end
       end
